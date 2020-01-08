@@ -1043,7 +1043,6 @@ pipeline: DDOS-me
 application: test1
 pipeline_hooks:
 - type: WebHook
-  ref: "1541182443"
   config:
     method: POST
   conditions:
@@ -1087,9 +1086,7 @@ workflow:
 hooks:
   1_start:
   - type: Scheduler
-    ref: "1542119521"
   - type: WebHook
-    ref: "1542119475"
     config:
       method: POST
 `,
