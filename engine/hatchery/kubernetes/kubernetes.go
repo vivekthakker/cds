@@ -230,10 +230,7 @@ func (h *HatcheryKubernetes) WorkerModelsEnabled() ([]sdk.Model, error) {
 func (h *HatcheryKubernetes) CanSpawn(ctx context.Context, model *sdk.Model, jobID int64, requirements []sdk.Requirement) bool {
 	// Service and Hostname requirement are not supported
 	for _, r := range requirements {
-		if r.Type == sdk.ServiceRequirement {
-			log.Debug("CanSpawn> Job %d has a service requirement. Kubernetes can't spawn a worker for this job", jobID)
-			return false
-		} else if r.Type == sdk.HostnameRequirement {
+		if r.Type == sdk.HostnameRequirement {
 			log.Debug("CanSpawn> Job %d has a hostname requirement. Kubernetes can't spawn a worker for this job", jobID)
 			return false
 		}
